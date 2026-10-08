@@ -1,179 +1,621 @@
-<!-- ========== FUENTES ========== -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi tienda</title>
+  <style>
+    :root {
+      --rosa-crema: #fff0f6;
+      --rosa-pastel: #ffd6e7;
+      --rosa-chicle: #ff8fb8;
+      --cereza: #c2255c;
+      --vino: #8a2650;
+      --texto: #5a1a3a;
+      --texto-suave: #7a3b57;
+      --lila: #7c4dbd;
+      --lila-claro: #e9d5ff;
+    }
 
-<style>
-  :root {
-    --rosa-chicle: #ff8fb8;
-    --rosa-pastel: #ffd6e7;
-    --rosa-crema: #fff0f6;
-    --cereza: #e0457b;
-    --vino: #8a2650;
-    --lila: #e9d5ff;
-    --durazno: #ffe3d3;
-  }
+    body {
+      font-family: system-ui, Arial, sans-serif;
+      background-color: var(--rosa-crema);
+      color: var(--texto);
+      padding: 20px;
+      margin: 0;
+      text-align: center;
+    }
 
-  body {
-    margin: 0;
-    background: var(--rosa-crema);
-    font-family: 'Quicksand', sans-serif;
-    color: var(--vino);
-  }
+    h1 {
+      color: var(--cereza);
+      margin-bottom: 8px;
+    }
 
-  /* ========== HEADER ========== */
-  .ss-header {
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    padding: 56px 20px 64px;
-    background:
-      radial-gradient(circle at 12% 18%, var(--lila) 0 90px, transparent 91px),
-      radial-gradient(circle at 90% 80%, var(--durazno) 0 110px, transparent 111px),
-      linear-gradient(160deg, #ffe0ee 0%, #fff0f6 55%, #ffeaf3 100%);
-    border-bottom: 4px dotted var(--rosa-chicle);
-  }
+    .slogan {
+      color: var(--vino);
+      font-size: 17px;
+      margin-top: 0;
+      margin-bottom: 25px;
+    }
 
-  /* lazos y destellos flotando */
-  .ss-deco {
-    position: absolute;
-    font-size: 30px;
-    opacity: .85;
-    animation: flotar 4s ease-in-out infinite;
-    pointer-events: none;
-    user-select: none;
-  }
-  .ss-deco.d1 { top: 14%; left: 8%;  animation-delay: 0s; }
-  .ss-deco.d2 { top: 20%; right: 9%; animation-delay: .8s; font-size: 38px; }
-  .ss-deco.d3 { bottom: 26%; left: 15%; animation-delay: 1.6s; font-size: 24px; }
-  .ss-deco.d4 { bottom: 22%; right: 16%; animation-delay: 2.2s; }
-  .ss-deco.d5 { top: 8%; left: 48%; animation-delay: 1.2s; font-size: 22px; }
+    /* Beneficios de la tienda */
 
-  @keyframes flotar {
-    0%, 100% { transform: translateY(0) rotate(-6deg); }
-    50%      { transform: translateY(-12px) rotate(6deg); }
-  }
+    .beneficios {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
 
-  /* etiqueta chiquita arriba */
-  .ss-etiqueta {
-    display: inline-block;
-    background: #fff;
-    color: var(--cereza);
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 6px 18px;
-    border-radius: 999px;
-    border: 2px solid var(--rosa-chicle);
-    box-shadow: 0 4px 0 var(--rosa-pastel);
-    margin-bottom: 18px;
-  }
+      background-color: var(--cereza);
+      color: white;
 
-  /* LOGO / TÍTULO */
-  .ss-titulo {
-    position: relative;
-    margin: 0;
-    font-family: 'Pacifico', cursive;
-    font-weight: 400;
-    font-size: clamp(46px, 9vw, 92px);
-    line-height: 1.1;
-    color: var(--cereza);
-    text-shadow:
-      3px 3px 0 #fff,
-      6px 6px 0 var(--rosa-chicle);
-  }
-  .ss-titulo .amp {
-    display: inline-block;
-    color: var(--rosa-chicle);
-    transform: rotate(-8deg) scale(.9);
-    text-shadow: 3px 3px 0 #fff, 6px 6px 0 var(--lila);
-  }
+      padding: 14px;
+      margin-bottom: 30px;
+      border-radius: 999px;
+      box-shadow: 0 5px 0 var(--rosa-chicle);
+    }
 
-  .ss-slogan {
-    margin: 22px auto 0;
-    max-width: 520px;
-    font-size: clamp(16px, 2.6vw, 21px);
-    font-weight: 600;
-    color: var(--vino);
-  }
-  .ss-slogan b { color: var(--cereza); }
+    .beneficios span {
+      font-size: 14px;
+      font-weight: 600;
+    }
 
-  /* BENEFICIOS */
-  .beneficios {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 30px;
-  }
-  .beneficios span {
-    background: rgba(255,255,255,.9);
-    border: 2px solid var(--rosa-chicle);
-    border-radius: 999px;
-    padding: 9px 20px;
-    font-weight: 700;
-    font-size: 14px;
-    color: var(--vino);
-    box-shadow: 0 4px 0 var(--rosa-pastel);
-    transition: transform .2s, background .2s;
-    cursor: default;
-  }
-  .beneficios span:nth-child(2) { border-color: #c9a4f5; box-shadow: 0 4px 0 var(--lila); }
-  .beneficios span:nth-child(3) { border-color: #ffb18a; box-shadow: 0 4px 0 var(--durazno); }
-  .beneficios span:hover {
-    transform: translateY(-4px) rotate(-2deg);
-    background: #fff;
-  }
+    /* Catálogo */
 
-  /* ========== PRODUCTOS Y CARRITO ========== */
-  #productos { max-width: 1100px; margin: 36px auto; padding: 0 20px; }
+    #productos {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
 
-  .carrito {
-    max-width: 480px;
-    margin: 30px auto 60px;
-    padding: 24px 28px;
-    background: #fff;
-    border: 3px solid var(--rosa-chicle);
-    border-radius: 28px;
-    box-shadow: 8px 8px 0 var(--rosa-pastel);
-  }
-  .carrito h2 {
-    margin: 0 0 12px;
-    font-family: 'Pacifico', cursive;
-    font-weight: 400;
-    color: var(--cereza);
-  }
+    .producto {
+      border: 2px solid var(--rosa-chicle);
+      background: white;
+      border-radius: 18px;
+      padding: 10px;
+      width: 220px;
+      vertical-align: top;
+      box-shadow: 5px 5px 0 var(--rosa-pastel);
+    }
 
-  @media (prefers-reduced-motion: reduce) {
-    .ss-deco { animation: none; }
-  }
-</style>
+    .producto img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
 
-<!-- ========== HTML ========== -->
-<header class="ss-header">
-  <span class="ss-deco d1">🎀</span>
-  <span class="ss-deco d2">🍓</span>
-  <span class="ss-deco d3">✨</span>
-  <span class="ss-deco d4">🍒</span>
-  <span class="ss-deco d5">🤍</span>
+    .producto h3 {
+      margin-bottom: 8px;
+      color: var(--vino);
+    }
 
-  <span class="ss-etiqueta">♡ comida internacional ♡</span>
+    .descripcion {
+      font-size: 14px;
+      color: var(--texto-suave);
+      min-height: 42px;
+    }
 
-  <h1 class="ss-titulo">Sip <span class="amp">&amp;</span> Smile</h1>
+    .precio {
+      font-size: 18px;
+      font-weight: bold;
+      color: var(--cereza);
+    }
 
-  <p class="ss-slogan">
-    Sabores del mundo a un clic de distancia 🌎 <b>¡y con mucho amor!</b> 💕
-  </p>
+    /* Botones */
 
-  <div class="beneficios">
-    <span>🚚 Envíos en Bogotá</span>
-    <span>🔒 Compra segura</span>
-    <span>📦 Seguimiento de pedido</span>
+    .producto button {
+      background-color: var(--cereza);
+      border: none;
+      color: white;
+      padding: 9px 12px;
+      margin-top: 5px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .producto button:hover {
+      opacity: 0.85;
+    }
+
+    /* Carrito */
+
+    .carrito {
+      margin-top: 35px;
+      padding: 20px;
+      background: white;
+      border: 2px solid var(--rosa-chicle);
+      border-radius: 22px;
+      box-shadow: 6px 6px 0 var(--rosa-pastel);
+      color: var(--texto);
+      text-align: left;
+      display: inline-block;
+      min-width: 320px;
+    }
+
+    .carrito h2 {
+      margin-top: 0;
+      color: var(--cereza);
+    }
+
+    #lista-carrito {
+      padding-left: 20px;
+    }
+
+    #lista-carrito li {
+      margin-bottom: 8px;
+    }
+
+    .resumen {
+      border-top: 2px dotted var(--rosa-chicle);
+      margin-top: 15px;
+      padding-top: 10px;
+    }
+
+    .total {
+      font-size: 19px;
+      color: var(--vino);
+    }
+
+    /* Botón vaciar */
+
+    .vaciar {
+      background-color: var(--vino);
+      border: none;
+      color: white;
+      padding: 9px 12px;
+      margin-top: 10px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    /* Botón finalizar */
+
+    .finalizar {
+      background-color: var(--lila);
+      border: none;
+      color: white;
+      padding: 9px 12px;
+      margin-top: 10px;
+      margin-left: 5px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .vaciar:hover,
+    .finalizar:hover {
+      opacity: 0.85;
+    }
+
+    Si usas también el header que te di antes, ese ya trae sus propios estilos para el título, el eslogan y los beneficios. En ese caso borra de este CSS los bloques h1, .slogan y .beneficios para que no se pisen. Los colores se cambian todos desde las variables de :root. 💕
+  </style>
+</head>
+<body>
+  <!-- ========== FUENTES ========== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --rosa-chicle: #ff8fb8;
+      --rosa-pastel: #ffd6e7;
+      --rosa-crema: #fff0f6;
+      --cereza: #e0457b;
+      --vino: #8a2650;
+      --lila: #e9d5ff;
+      --durazno: #ffe3d3;
+    }
+
+    body {
+      margin: 0;
+      background: var(--rosa-crema);
+      font-family: 'Quicksand', sans-serif;
+      color: var(--vino);
+    }
+
+    /* ========== HEADER ========== */
+    .ss-header {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 56px 20px 64px;
+      background:
+        radial-gradient(circle at 12% 18%, var(--lila) 0 90px, transparent 91px),
+        radial-gradient(circle at 90% 80%, var(--durazno) 0 110px, transparent 111px),
+        linear-gradient(160deg, #ffe0ee 0%, #fff0f6 55%, #ffeaf3 100%);
+      border-bottom: 4px dotted var(--rosa-chicle);
+    }
+
+    /* lazos y destellos flotando */
+    .ss-deco {
+      position: absolute;
+      font-size: 30px;
+      opacity: .85;
+      animation: flotar 4s ease-in-out infinite;
+      pointer-events: none;
+      user-select: none;
+    }
+    .ss-deco.d1 { top: 14%; left: 8%;  animation-delay: 0s; }
+    .ss-deco.d2 { top: 20%; right: 9%; animation-delay: .8s; font-size: 38px; }
+    .ss-deco.d3 { bottom: 26%; left: 15%; animation-delay: 1.6s; font-size: 24px; }
+    .ss-deco.d4 { bottom: 22%; right: 16%; animation-delay: 2.2s; }
+    .ss-deco.d5 { top: 8%; left: 48%; animation-delay: 1.2s; font-size: 22px; }
+
+    @keyframes flotar {
+      0%, 100% { transform: translateY(0) rotate(-6deg); }
+      50%      { transform: translateY(-12px) rotate(6deg); }
+    }
+
+    /* etiqueta chiquita arriba */
+    .ss-etiqueta {
+      display: inline-block;
+      background: #fff;
+      color: var(--cereza);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 999px;
+      border: 2px solid var(--rosa-chicle);
+      box-shadow: 0 4px 0 var(--rosa-pastel);
+      margin-bottom: 18px;
+    }
+
+    /* LOGO / TÍTULO */
+    .ss-titulo {
+      position: relative;
+      margin: 0;
+      font-family: 'Pacifico', cursive;
+      font-weight: 400;
+      font-size: clamp(46px, 9vw, 92px);
+      line-height: 1.1;
+      color: var(--cereza);
+      text-shadow:
+        3px 3px 0 #fff,
+        6px 6px 0 var(--rosa-chicle);
+    }
+    .ss-titulo .amp {
+      display: inline-block;
+      color: var(--rosa-chicle);
+      transform: rotate(-8deg) scale(.9);
+      text-shadow: 3px 3px 0 #fff, 6px 6px 0 var(--lila);
+    }
+
+    .ss-slogan {
+      margin: 22px auto 0;
+      max-width: 520px;
+      font-size: clamp(16px, 2.6vw, 21px);
+      font-weight: 600;
+      color: var(--vino);
+    }
+    .ss-slogan b { color: var(--cereza); }
+
+    /* BENEFICIOS */
+    .beneficios {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 30px;
+    }
+    .beneficios span {
+      background: rgba(255,255,255,.9);
+      border: 2px solid var(--rosa-chicle);
+      border-radius: 999px;
+      padding: 9px 20px;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--vino);
+      box-shadow: 0 4px 0 var(--rosa-pastel);
+      transition: transform .2s, background .2s;
+      cursor: default;
+    }
+    .beneficios span:nth-child(2) { border-color: #c9a4f5; box-shadow: 0 4px 0 var(--lila); }
+    .beneficios span:nth-child(3) { border-color: #ffb18a; box-shadow: 0 4px 0 var(--durazno); }
+    .beneficios span:hover {
+      transform: translateY(-4px) rotate(-2deg);
+      background: #fff;
+    }
+
+    /* ========== PRODUCTOS Y CARRITO ========== */
+    #productos { max-width: 1100px; margin: 36px auto; padding: 0 20px; }
+
+    .carrito {
+      max-width: 480px;
+      margin: 30px auto 60px;
+      padding: 24px 28px;
+      background: #fff;
+      border: 3px solid var(--rosa-chicle);
+      border-radius: 28px;
+      box-shadow: 8px 8px 0 var(--rosa-pastel);
+    }
+    .carrito h2 {
+      margin: 0 0 12px;
+      font-family: 'Pacifico', cursive;
+      font-weight: 400;
+      color: var(--cereza);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ss-deco { animation: none; }
+    }
+  </style>
+
+  <!-- ========== HTML ========== -->
+  <header class="ss-header">
+    <span class="ss-deco d1">🎀</span>
+    <span class="ss-deco d2">🍓</span>
+    <span class="ss-deco d3">✨</span>
+    <span class="ss-deco d4">🍒</span>
+    <span class="ss-deco d5">🤍</span>
+
+    <span class="ss-etiqueta">♡ OWALAS♡</span>
+
+    <h1 class="ss-titulo">Sip <span class="amp">&amp;</span> Smile</h1>
+
+    <p class="ss-slogan">
+      Cada sorbo, una sonrisa <b>¡y con mucho amor!</b> 💕
+    </p>
+
+    <div class="beneficios">
+      <span>🚚 Envíos en Bogotá</span>
+      <span>🔒 Compra segura</span>
+      <span>📦 Seguimiento de pedido</span>
+    </div>
+  </header>
+
+  <div id="productos"></div>
+
+  <div class="carrito">
+    <h2>🧾 Carrito de Compras</h2>
   </div>
-</header>
 
-<div id="productos"></div>
+  <script>
+    const productos = [
+      {
+        id: 1,
+        nombre: "OWALA CUPIDO",
+        descripcion: "Un diseño atrevido y lleno de personalidad. La Owala FreeSip de 32 oz – Shot To The Heart (DS Exclusive) combina un look impactante con la funcionalidad icónica de Owala, perfecta para destacar mientras te mantienes hidratada.",
+        precio: 25000,
+        imagen: "https://cococutemx.com/cdn/shop/files/21524C19-7D01-428C-B8D0-4702D3DF5C71.webp?v=1774533174&width=823"
+      },
+      {
+        id: 2,
+        nombre: "OWALA FRUTAL",
+        descripcion: "Tropical y radiante: la Owala FreeSip con estampado de frutas que convierte cada sorbo en un mini viaje al paraíso. 🍍",
+        precio: 18000,
+        imagen: "https://s7d2.scene7.com/is/image/aeo/0577_9785_900_f?$pdp-md-opt$&fmt=webp"
+      },
+      {
+        id: 3,
+        nombre: "OWALA DOG",
+        descripcion: "Perritos con mucho estilo: la Owala FreeSip azul cielo con corgis, pugs y compañía en sus mejores looks, para que cada sorbo venga con una dosis de ternura. 🐶",
+        precio: 30000,
+        imagen: "https://kw.glam-moda.com/cdn/shop/files/image_20260331_Owala_UO_Exclusive_Dog_Collage_1.webp?v=1776523220&width=1080"
+      },
+      {
+        id: 4,
+        nombre: "OWALA COQUETTE",
+        descripcion: "Croissant horneado con textura ligera y crujiente.",
+        precio: 18000,
+        imagen: "https://i.ebayimg.com/images/g/0OkAAeSwMlNozOeG/s-l1600.webp"
+      },
+      {
+        id: 5,
+        nombre: "OWALA CAT",
+        descripcion: "Gatitos con mucha actitud: la Owala FreeSip verde menta con felinos en sus mejores looks, para que cada sorbo tenga un toque de elegancia y travesura. 🐱",
+        precio: 22000,
+        imagen: "https://acdn-us.mitiendanube.com/stores/001/689/323/products/img_0278-b9bfb9cbd26dbbf34e17553179862230-640-0.webp"
+      }
+    ];
 
-<div class="carrito">
-  <h2>🧾 Carrito de Compras</h2>
-</div>
+
+    /* ==============================
+       CARRITO
+    ================================ */
+
+    const carrito = [];
+
+    const contenedorProductos = document.getElementById("productos");
+    const listaCarrito = document.getElementById("lista-carrito");
+    const totalCarrito = document.getElementById("total");
+
+
+    /* ==============================
+       MOSTRAR PRODUCTOS
+    ================================ */
+
+    function mostrarProductos() {
+
+      contenedorProductos.innerHTML = "";
+
+      productos.forEach(prod => {
+
+        const div = document.createElement("div");
+
+        div.className = "producto";
+
+        div.innerHTML = `
+          <img src="${prod.imagen}" alt="${prod.nombre}">
+
+          <h3>${prod.nombre}</h3>
+
+          <p class="descripcion">
+            ${prod.descripcion}
+          </p>
+
+          <p class="precio">
+            ${prod.precio.toLocaleString("es-CO", {
+              style: "currency",
+              currency: "COP",
+              minimumFractionDigits: 0
+            })}
+          </p>
+
+          <button onclick="agregarAlCarrito(${prod.id})">
+            Agregar al carrito
+          </button>
+        `;
+
+        contenedorProductos.appendChild(div);
+
+      });
+
+    }
+
+
+    /* ==============================
+       AGREGAR AL CARRITO
+    ================================ */
+
+    function agregarAlCarrito(id) {
+
+      const productoExistente =
+        carrito.find(p => p.id === id);
+
+      if (productoExistente) {
+
+        productoExistente.cantidad++;
+
+      } else {
+
+        const producto =
+          productos.find(p => p.id === id);
+
+        carrito.push({
+          ...producto,
+          cantidad: 1
+        });
+
+      }
+
+      actualizarCarrito();
+
+    }
+
+
+    /* ==============================
+       ACTUALIZAR CARRITO
+    ================================ */
+
+    function actualizarCarrito() {
+
+      listaCarrito.innerHTML = "";
+
+      let total = 0;
+      let totalItems = 0;
+
+      carrito.forEach(item => {
+
+        const li =
+          document.createElement("li");
+
+        const subtotal =
+          item.precio * item.cantidad;
+
+        li.textContent =
+          `${item.nombre} x${item.cantidad} — ` +
+          subtotal.toLocaleString("es-CO", {
+            style: "currency",
+            currency: "COP",
+            minimumFractionDigits: 0
+          });
+
+        listaCarrito.appendChild(li);
+
+        total += subtotal;
+        totalItems += item.cantidad;
+
+      });
+
+      totalCarrito.textContent =
+        total.toLocaleString("es-CO");
+
+      actualizarTituloCarrito(totalItems);
+
+    }
+
+
+    /* ==============================
+       CONTADOR DEL CARRITO
+    ================================ */
+
+    function actualizarTituloCarrito(cantidad) {
+
+      const titulo =
+        document.querySelector(".carrito h2");
+
+      titulo.textContent =
+        `🧾 Carrito de Compras (${cantidad})`;
+
+    }
+
+
+    /* ==============================
+       VACIAR CARRITO
+    ================================ */
+
+    function vaciarCarrito() {
+
+      if (carrito.length === 0) {
+
+        alert("🛒 El carrito ya está vacío.");
+
+        return;
+
+      }
+
+      if (
+        confirm(
+          "¿Estás seguro de que quieres vaciar el carrito?"
+        )
+      ) {
+
+        carrito.length = 0;
+
+        actualizarCarrito();
+
+      }
+
+    }
+
+
+    /* ==============================
+       FINALIZAR COMPRA
+    ================================ */
+
+    function finalizarCompra() {
+
+      if (carrito.length === 0) {
+
+        alert(
+          "🛒 Tu carrito está vacío. Agrega productos antes de finalizar la compra."
+        );
+
+        return;
+
+      }
+
+      alert(
+        "🎉 ¡Pedido simulado confirmado!\n\n" +
+        "En un eCommerce real, ahora entrarían en acción " +
+        "el backend, la pasarela de pago y la logística."
+      );
+
+      carrito.length = 0;
+
+      actualizarCarrito();
+
+    }
+
+
+    /* ==============================
+       INICIAR TIENDA
+    ================================ */
+
+    mostrarProductos();
+  </script>
+</body>
+</html>
