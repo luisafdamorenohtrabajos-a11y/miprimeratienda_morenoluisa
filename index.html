@@ -1,0 +1,179 @@
+<!-- ========== FUENTES ========== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --rosa-chicle: #ff8fb8;
+    --rosa-pastel: #ffd6e7;
+    --rosa-crema: #fff0f6;
+    --cereza: #e0457b;
+    --vino: #8a2650;
+    --lila: #e9d5ff;
+    --durazno: #ffe3d3;
+  }
+
+  body {
+    margin: 0;
+    background: var(--rosa-crema);
+    font-family: 'Quicksand', sans-serif;
+    color: var(--vino);
+  }
+
+  /* ========== HEADER ========== */
+  .ss-header {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 56px 20px 64px;
+    background:
+      radial-gradient(circle at 12% 18%, var(--lila) 0 90px, transparent 91px),
+      radial-gradient(circle at 90% 80%, var(--durazno) 0 110px, transparent 111px),
+      linear-gradient(160deg, #ffe0ee 0%, #fff0f6 55%, #ffeaf3 100%);
+    border-bottom: 4px dotted var(--rosa-chicle);
+  }
+
+  /* lazos y destellos flotando */
+  .ss-deco {
+    position: absolute;
+    font-size: 30px;
+    opacity: .85;
+    animation: flotar 4s ease-in-out infinite;
+    pointer-events: none;
+    user-select: none;
+  }
+  .ss-deco.d1 { top: 14%; left: 8%;  animation-delay: 0s; }
+  .ss-deco.d2 { top: 20%; right: 9%; animation-delay: .8s; font-size: 38px; }
+  .ss-deco.d3 { bottom: 26%; left: 15%; animation-delay: 1.6s; font-size: 24px; }
+  .ss-deco.d4 { bottom: 22%; right: 16%; animation-delay: 2.2s; }
+  .ss-deco.d5 { top: 8%; left: 48%; animation-delay: 1.2s; font-size: 22px; }
+
+  @keyframes flotar {
+    0%, 100% { transform: translateY(0) rotate(-6deg); }
+    50%      { transform: translateY(-12px) rotate(6deg); }
+  }
+
+  /* etiqueta chiquita arriba */
+  .ss-etiqueta {
+    display: inline-block;
+    background: #fff;
+    color: var(--cereza);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 999px;
+    border: 2px solid var(--rosa-chicle);
+    box-shadow: 0 4px 0 var(--rosa-pastel);
+    margin-bottom: 18px;
+  }
+
+  /* LOGO / TÍTULO */
+  .ss-titulo {
+    position: relative;
+    margin: 0;
+    font-family: 'Pacifico', cursive;
+    font-weight: 400;
+    font-size: clamp(46px, 9vw, 92px);
+    line-height: 1.1;
+    color: var(--cereza);
+    text-shadow:
+      3px 3px 0 #fff,
+      6px 6px 0 var(--rosa-chicle);
+  }
+  .ss-titulo .amp {
+    display: inline-block;
+    color: var(--rosa-chicle);
+    transform: rotate(-8deg) scale(.9);
+    text-shadow: 3px 3px 0 #fff, 6px 6px 0 var(--lila);
+  }
+
+  .ss-slogan {
+    margin: 22px auto 0;
+    max-width: 520px;
+    font-size: clamp(16px, 2.6vw, 21px);
+    font-weight: 600;
+    color: var(--vino);
+  }
+  .ss-slogan b { color: var(--cereza); }
+
+  /* BENEFICIOS */
+  .beneficios {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+  }
+  .beneficios span {
+    background: rgba(255,255,255,.9);
+    border: 2px solid var(--rosa-chicle);
+    border-radius: 999px;
+    padding: 9px 20px;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--vino);
+    box-shadow: 0 4px 0 var(--rosa-pastel);
+    transition: transform .2s, background .2s;
+    cursor: default;
+  }
+  .beneficios span:nth-child(2) { border-color: #c9a4f5; box-shadow: 0 4px 0 var(--lila); }
+  .beneficios span:nth-child(3) { border-color: #ffb18a; box-shadow: 0 4px 0 var(--durazno); }
+  .beneficios span:hover {
+    transform: translateY(-4px) rotate(-2deg);
+    background: #fff;
+  }
+
+  /* ========== PRODUCTOS Y CARRITO ========== */
+  #productos { max-width: 1100px; margin: 36px auto; padding: 0 20px; }
+
+  .carrito {
+    max-width: 480px;
+    margin: 30px auto 60px;
+    padding: 24px 28px;
+    background: #fff;
+    border: 3px solid var(--rosa-chicle);
+    border-radius: 28px;
+    box-shadow: 8px 8px 0 var(--rosa-pastel);
+  }
+  .carrito h2 {
+    margin: 0 0 12px;
+    font-family: 'Pacifico', cursive;
+    font-weight: 400;
+    color: var(--cereza);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ss-deco { animation: none; }
+  }
+</style>
+
+<!-- ========== HTML ========== -->
+<header class="ss-header">
+  <span class="ss-deco d1">🎀</span>
+  <span class="ss-deco d2">🍓</span>
+  <span class="ss-deco d3">✨</span>
+  <span class="ss-deco d4">🍒</span>
+  <span class="ss-deco d5">🤍</span>
+
+  <span class="ss-etiqueta">♡ comida internacional ♡</span>
+
+  <h1 class="ss-titulo">Sip <span class="amp">&amp;</span> Smile</h1>
+
+  <p class="ss-slogan">
+    Sabores del mundo a un clic de distancia 🌎 <b>¡y con mucho amor!</b> 💕
+  </p>
+
+  <div class="beneficios">
+    <span>🚚 Envíos en Bogotá</span>
+    <span>🔒 Compra segura</span>
+    <span>📦 Seguimiento de pedido</span>
+  </div>
+</header>
+
+<div id="productos"></div>
+
+<div class="carrito">
+  <h2>🧾 Carrito de Compras</h2>
+</div>
